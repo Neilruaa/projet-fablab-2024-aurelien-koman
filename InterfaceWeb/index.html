@@ -1,1 +1,53 @@
-le html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connected Home Web App</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sliders = document.querySelectorAll(".slider-input");
+      const buttons = document.querySelectorAll(".icon button");
+
+      sliders.forEach((slider, index) => {
+        slider.addEventListener("input", function() {
+          if (parseInt(slider.value) > 50) {
+            buttons[index].querySelector("img").src = "https://media.discordapp.net/attachments/1159051618021556305/1165934958196555827/image-removebg-preview_4.png?ex=6548a88c&is=6536338c&hm=43415e63329397b95223fa696b6515c929d63d49fdbd3d7ce25954269efc7f0b&=&width=450&height=450";
+          } else {
+            buttons[index].querySelector("img").src = "https://cdn.discordapp.com/attachments/1159051618021556305/1165934922058453023/image-removebg-preview_5.png?ex=6548a883&is=65363383&hm=4172b1bad1a65e45f6a32b793b4a8da07ee0fb610ff8ba3c8dfe218f4995a6b5&";
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-icon">
+      <img src="https://media.discordapp.net/attachments/1159051618021556305/1165932386199011368/eJfUhhxCxJUwXPNFlUTTuDYI8zV9L-4zUxKY5PHNfZonqiqsIwys7HV6uGr688i4-Rw1.png?ex=6548a626&is=65363126&hm=7e4d14170c47ebc9adaf1839ea42eb65ddafa93ed2ec34791e528283221fb872&=&width=934&height=934" alt="Header Icon">
+    </div>
+  </header>
+  <div class="container">
+    <div class="icons">
+      <div class="icon">
+        <button><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165934922058453023/image-removebg-preview_5.png?ex=6548a883&is=65363383&hm=4172b1bad1a65e45f6a32b793b4a8da07ee0fb610ff8ba3c8dfe218f4995a6b5&" alt="Icon 2"></button>
+        <button><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165934177099714560/image-removebg-preview_2.png?ex=6548a7d1&is=653632d1&hm=e2bbff0d92797d459e2b56186dd24aee422eac8c10ca813aa6fedba560cc19ee&" alt="Icon 2"></button>
+      </div>
+      <div class="icon">
+        <button><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165936663134998600/image-removebg-preview_6.png?ex=6548aa22&is=65363522&hm=e25509b5c9b42aeadf3df9aec3f333e0e254acd7ef12492aa1cb3c50156a58df&" alt="Icon 1"> </button>
+        <button><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165937514499035218/image-removebg-preview_7.png?ex=6548aaed&is=653635ed&hm=92e0365d79334a34644503f99efb2058b309502fc8db96edd745536e85cc6b26&" alt="Icon 2"></button>
+      </div>
+      <!-- Add more icons here -->
+    </div>
+    <div class="sliders">
+      <div class="slider">
+        <input type="range" min="0" max="100" value="50" class="slider-input">
+      </div>
+      <div class="slider">
+        <input type="range" min="0" max="100" value="50" class="slider-input">
+      </div>
+      <!-- Add more sliders here -->
+    </div>
+  </div>
+</body>
+</html>
+
