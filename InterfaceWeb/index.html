@@ -11,14 +11,14 @@
       sliders.forEach((slider, index) => {
         slider.addEventListener("input", function() {
           if (parseInt(slider.value) > 80) {
-            buttons[index].querySelector("img").src = "https://media.discordapp.net/attachments/1159051618021556305/1166290926830882856/image-removebg-preview_3.png?ex=6549f411&is=65377f11&hm=eae5c8f83a1e86dd45ba2afd567c5678ae98294933498fc7c6aff6dbd626f2b7&=&width=934&height=934";
+            buttons[index].querySelector("img").src ="/InterfaceWeb/img/porte bizarre.png";
           }
           else if (parseInt(slider.value) > 50) {
-            buttons[index].querySelector("img").src = "https://cdn.discordapp.com/attachments/1159051618021556305/1166287110425296937/image-removebg-preview_3.png?ex=6549f083&is=65377b83&hm=75beaf15ce14d8d97d3916d4bf22f57c176303559a28495843bc09f5d3801cb3&";
+            buttons[index].querySelector("img").src ="/InterfaceWeb/img/Porte vide.png";
           } else if (parseInt(slider.value) > 2){
-            buttons[index].querySelector("img").src = "https://cdn.discordapp.com/attachments/1159051618021556305/1165934284465516554/image-removebg-preview_3.png?ex=6548a7eb&is=653632eb&hm=eb45e36f169f8f9a7b5f708ff0da78a9064a8cbc24f086d10b05b70af6050281&";
+            buttons[index].querySelector("img").src ="/InterfaceWeb/img/porte a moitié ouverte.png";
           } else {
-            buttons[index].querySelector("img").src = "https://cdn.discordapp.com/attachments/1159051618021556305/1165934177099714560/image-removebg-preview_2.png?ex=6548a7d1&is=653632d1&hm=e2bbff0d92797d459e2b56186dd24aee422eac8c10ca813aa6fedba560cc19ee&";
+            buttons[index].querySelector("img").src ="/InterfaceWeb/img/porte.png";
           }
         });
       });
@@ -28,13 +28,13 @@
 <body>
   <header>
     <div class="header-icon">
-      <img src="https://media.discordapp.net/attachments/1159051618021556305/1165932386199011368/eJfUhhxCxJUwXPNFlUTTuDYI8zV9L-4zUxKY5PHNfZonqiqsIwys7HV6uGr688i4-Rw1.png?ex=6548a626&is=65363126&hm=7e4d14170c47ebc9adaf1839ea42eb65ddafa93ed2ec34791e528283221fb872&=&width=934&height=934" alt="Header Icon">
+      <img src="./img/Maison logo.png" alt="Header Icon">
     </div>
   </header>
   <div class="container">
     <div class="icons">
       <div class="icon">
-        <button id="icon1"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165934922058453023/image-removebg-preview_5.png?ex=6548a883&is=65363383&hm=4172b1bad1a65e45f6a32b793b4a8da07ee0fb610ff8ba3c8dfe218f4995a6b5&" id="img1"></button>
+        <button id="icon1"><img src="./img/Eteinte.png" id="img1"></button>
         <script>
           const myImg = document.getElementById("img1");
           const myButton = document.getElementById("icon1");
@@ -43,17 +43,17 @@
 
           myButton.addEventListener("click", function() {
             if (isFirstImage) {
-              myImg.src = "https://cdn.discordapp.com/attachments/1159051618021556305/1165934922058453023/image-removebg-preview_5.png?ex=6548a883&is=65363383&hm=4172b1bad1a65e45f6a32b793b4a8da07ee0fb610ff8ba3c8dfe218f4995a6b5&";
+              myImg.src ="/InterfaceWeb/img/Eteinte.png";
             } else {
-              myImg.src = "https://media.discordapp.net/attachments/1159051618021556305/1165934958196555827/image-removebg-preview_4.png?ex=6548a88c&is=6536338c&hm=43415e63329397b95223fa696b6515c929d63d49fdbd3d7ce25954269efc7f0b&=&width=450&height=450";
+              myImg.src ="/InterfaceWeb/img/lumière allumé.png";
             }
             isFirstImage = !isFirstImage;
           });
         </script>
-        <button id="icon2"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165934177099714560/image-removebg-preview_2.png?ex=6548a7d1&is=653632d1&hm=e2bbff0d92797d459e2b56186dd24aee422eac8c10ca813aa6fedba560cc19ee&""></button>
+        <button id="icon2"><img src="./img/porte.png"></button>
       </div>
       <div class="icon">
-        <button id="icon3"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165937514499035218/image-removebg-preview_7.png?ex=6548aaed&is=653635ed&hm=92e0365d79334a34644503f99efb2058b309502fc8db96edd745536e85cc6b26&" id="img3"> </button>
+        <button id="icon3"><img src="./img/Radiateur.png" id="img3"> </button>
         <script>
           const myIm = document.getElementById("img3");
           const myButto = document.getElementById("icon3");
@@ -62,14 +62,14 @@
 
           myButto.addEventListener("click", function() {
             if (isFirstImag) {
-              myIm.src = "https://cdn.discordapp.com/attachments/1159051618021556305/1165937514499035218/image-removebg-preview_7.png?ex=6548aaed&is=653635ed&hm=92e0365d79334a34644503f99efb2058b309502fc8db96edd745536e85cc6b26&";
+              myIm.src = "/InterfaceWeb/img/Radiateur.png";
             } else {
-              myIm.src = "https://media.discordapp.net/attachments/1159051618021556305/1166302346901475338/image-removebg-preview_7.png?ex=6549feb4&is=653789b4&hm=279dc6e10fdefe82b5e3e9cf4bd01d8aba3741936c9d0eb17647ca17568967a7&=&width=934&height=934";
+              myIm.src = "/InterfaceWeb/img/radiateurchauffé.png";
             }
             isFirstImag = !isFirstImag;
           });
         </script>
-        <button id="icon4"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165936663134998600/image-removebg-preview_6.png?ex=6548aa22&is=65363522&hm=e25509b5c9b42aeadf3df9aec3f333e0e254acd7ef12492aa1cb3c50156a58df&"></button>
+        <button id="icon4"><img src="./img/fenêtre.png"></button>
       </div>
       <!-- Add more icons here -->
     </div>
