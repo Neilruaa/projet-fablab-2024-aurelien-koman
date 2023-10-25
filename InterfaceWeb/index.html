@@ -34,7 +34,7 @@
   <div class="container">
     <div class="icons">
       <div class="icon">
-        <button id="icon1"><img src="./img/Eteinte.png" id="img1"></button>
+        <button id="icon1"><img src="./img/eteinte.png" id="img1"></button>
         <script>
           const myImg = document.getElementById("img1");
           const myButton = document.getElementById("icon1");
@@ -43,7 +43,7 @@
 
           myButton.addEventListener("click", function() {
             if (isFirstImage) {
-              myImg.src ="/InterfaceWeb/img/Eteinte.png";
+              myImg.src ="/InterfaceWeb/img/eteinte.png";
             } else {
               myImg.src ="/InterfaceWeb/img/lumière allumé.png";
             }
@@ -53,7 +53,7 @@
         <button id="icon2"><img src="./img/porte.png"></button>
       </div>
       <div class="icon">
-        <button id="icon3"><img src="./img/Radiateur.png" id="img3"> </button>
+        <button id="icon3"><img src="./img/radiateur.png" id="img3"> </button>
         <script>
           const myIm = document.getElementById("img3");
           const myButto = document.getElementById("icon3");
@@ -62,7 +62,7 @@
 
           myButto.addEventListener("click", function() {
             if (isFirstImag) {
-              myIm.src = "/InterfaceWeb/img/Radiateur.png";
+              myIm.src = "/InterfaceWeb/img/radiateur.png";
             } else {
               myIm.src = "/InterfaceWeb/img/radiateurchauffé.png";
             }
@@ -71,7 +71,6 @@
         </script>
         <button id="icon4"><img src="./img/fenêtre.png"></button>
       </div>
-      <!-- Add more icons here -->
     </div>
     <div class="sliders">
       <div class="slider">
@@ -82,8 +81,29 @@
       <div class="slider">
         <input type="range" min="0" max="100" value="50" class="slider-input" id="slider2">
       </div>
-      <!-- Add more sliders here -->
+      <img id="myImage" src="http://localhost:8080/InterfaceWeb/img/eteinte.png" alt="Image de la lampe">
     </div>
   </div>
+  <script>
+    async function lampe() {
+    const image = document.getElementById('img1');
+    let etatLampe = 0;
+    let newImageSource = image.src;
+
+    if (newImageSource.endsWith("./img/eteinte.png")) {
+        newImageSource = "/Users/komanboni/Flablab/projet-fablab-2024-aurelien-koman/InterfaceWeb/img/lumière allumé.png";
+        etatLampe = 1;
+    } else {
+        newImageSource = "/Users/komanboni/Flablab/projet-fablab-2024-aurelien-koman/InterfaceWeb/img/eteinte.png";
+        etatLampe = 0;
+    }
+
+    image.src = newImageSource;
+    const reponse = await fetch("http://localhost:8080/lampe?on="+etatLampe);
+    const data = await reponse.json()
+    console.log(data)
+    alert(data.result)
+}
+  </script>
 </body>
 </html>
