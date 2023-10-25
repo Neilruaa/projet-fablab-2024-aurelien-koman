@@ -50,11 +50,26 @@
             isFirstImage = !isFirstImage;
           });
         </script>
-        <button id="icon2"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165934177099714560/image-removebg-preview_2.png?ex=6548a7d1&is=653632d1&hm=e2bbff0d92797d459e2b56186dd24aee422eac8c10ca813aa6fedba560cc19ee&"></button>
+        <button id="icon2"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165934177099714560/image-removebg-preview_2.png?ex=6548a7d1&is=653632d1&hm=e2bbff0d92797d459e2b56186dd24aee422eac8c10ca813aa6fedba560cc19ee&""></button>
       </div>
       <div class="icon">
-        <button id="icon3"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165936663134998600/image-removebg-preview_6.png?ex=6548aa22&is=65363522&hm=e25509b5c9b42aeadf3df9aec3f333e0e254acd7ef12492aa1cb3c50156a58df&"> </button>
-        <button id="icon4"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165937514499035218/image-removebg-preview_7.png?ex=6548aaed&is=653635ed&hm=92e0365d79334a34644503f99efb2058b309502fc8db96edd745536e85cc6b26&"></button>
+        <button id="icon3"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165937514499035218/image-removebg-preview_7.png?ex=6548aaed&is=653635ed&hm=92e0365d79334a34644503f99efb2058b309502fc8db96edd745536e85cc6b26&" id="img3"> </button>
+        <script>
+          const myIm = document.getElementById("img3");
+          const myButto = document.getElementById("icon3");
+
+          let isFirstImag = true;
+
+          myButto.addEventListener("click", function() {
+            if (isFirstImag) {
+              myIm.src = "https://cdn.discordapp.com/attachments/1159051618021556305/1165937514499035218/image-removebg-preview_7.png?ex=6548aaed&is=653635ed&hm=92e0365d79334a34644503f99efb2058b309502fc8db96edd745536e85cc6b26&";
+            } else {
+              myIm.src = "https://media.discordapp.net/attachments/1159051618021556305/1166302346901475338/image-removebg-preview_7.png?ex=6549feb4&is=653789b4&hm=279dc6e10fdefe82b5e3e9cf4bd01d8aba3741936c9d0eb17647ca17568967a7&=&width=934&height=934";
+            }
+            isFirstImag = !isFirstImag;
+          });
+        </script>
+        <button id="icon4"><img src="https://cdn.discordapp.com/attachments/1159051618021556305/1165936663134998600/image-removebg-preview_6.png?ex=6548aa22&is=65363522&hm=e25509b5c9b42aeadf3df9aec3f333e0e254acd7ef12492aa1cb3c50156a58df&"></button>
       </div>
       <!-- Add more icons here -->
     </div>
