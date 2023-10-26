@@ -12,8 +12,14 @@
     <div class="header-icon">
       <img src="./img/Maison logo.png" alt="Header Icon">
     </div>
+    <div id="clock"></div>
   </header>
+  <button id="audio" onclick="playAudio()">Play</button>
+  <audio id="myAudio">
+    <source src="Hiroshi Suzuki-Romance.mp3" type="audio/mpeg">
+  </audio>
   <div class="container">
+    
     <div class="icons">
       <div class="icon">
         <button id="icon1"><img src="./img/eteinte.png" id="img1"></button>
@@ -148,17 +154,23 @@ function setupCanvas() {
     });
     const myIm = document.getElementById("img3");
     const myButto = document.getElementById("icon3");
-
     let isFirstImag = true;
 
-    myButto.addEventListener("click", function () {
+    myButto.addEventListener("click", async function () {
+      let etatRadiateur
       if (isFirstImag) {
         myIm.src = "/InterfaceWeb/img/radiateur.png";
+        etatRadiateur = 0;
       } else {
         myIm.src = "/InterfaceWeb/img/radiateurchauffé.png";
+        etatRadiateur = 1;
       }
       isFirstImag = !isFirstImag;
-    });
+      const reponse = await fetch("http://localhost:8080/chauffage?on=" + etatRadiateur);
+      const data = await reponse.json()
+      console.log(data)
+      alert(data.result)
+    })
     document.addEventListener("DOMContentLoaded", function () {
       const sliders = document.querySelectorAll("#slider1");
       const buttons = document.querySelectorAll("#icon2");
@@ -178,7 +190,51 @@ function setupCanvas() {
         });
       });
     });
+    document.addEventListener("DOMContentLoaded", function () {
+      const sliders = document.querySelectorAll("#slider2");
+      const buttons = document.querySelectorAll("#icon4");
+
+      sliders.forEach((slider, index) => {
+        slider.addEventListener("input", function () {
+          if (parseInt(slider.value) > 99) {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/fenêtre 4.png";
+          }
+          else if (parseInt(slider.value) > 70) {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/fenêtre 3.png";
+          } else if (parseInt(slider.value) > 50) {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/fenêtre 2.png";
+          }
+           else if (parseInt(slider.value) > 20) {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/fenêtre 1.png";
+          } else {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/fenêtre.png";
+          }
+        });
+      });
+    });
+    function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    // Add leading zero if necessary
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+    var time = hours + ":" + minutes + ":" + seconds;
+    document.getElementById("clock").textContent = time;
+  }
+
+  setInterval(updateClock, 1000);
+
+  setInterval(updateClock, 1000);
+
+  function playAudio() {
+    var audio = document.getElementById("myAudio");
+    audio.play();
+  }
   </script>
 </body>
 </html>
-
