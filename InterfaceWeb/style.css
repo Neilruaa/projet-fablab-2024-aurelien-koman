@@ -16,9 +16,9 @@
     margin-bottom: 10px;
     width: 95%;
     background-color: #dadada;
-    border: 2px solid black;
+    border: 10px solid rgb(26, 79, 255);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     display: flex;
     justify-content: space-between;
   }
@@ -47,16 +47,19 @@
   
   .slider-input {
     width: 100%;
+    color: black;
   }
 
   header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
-    background: rgb(63,94,251);
-    background: linear-gradient(0deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-    border-radius: 10px;
+    height: 145px;
+    background: #dadada;
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(26, 79, 255);
+    border-radius: 20px;
   }
   
   .header-icon img {
@@ -68,6 +71,34 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: rgb(34,193,195);
-    background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: #dadada;
+    background: radial-gradient( #dadada 0%, #ffca5f56 100%);
   }
+  
+  canvas{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+    
+}
+
+#icon1{
+  border: 5px solid rgb(26, 79, 255);
+  border-radius: 20px;
+}
+
+#icon2{
+  border: 5px solid rgb(26, 79, 255);
+  border-radius: 20px;
+}
+
+#icon3{
+  border: 5px solid rgb(26, 79, 255);
+  border-radius: 20px;
+}
+
+#icon4{
+  border: 5px solid rgb(26, 79, 255);
+  border-radius: 20px;
+}
