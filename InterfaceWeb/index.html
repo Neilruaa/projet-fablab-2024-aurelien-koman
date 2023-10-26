@@ -1,30 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Connected Home Web App</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const sliders = document.querySelectorAll("#slider1");
-      const buttons = document.querySelectorAll("#icon2");
-
-      sliders.forEach((slider, index) => {
-        slider.addEventListener("input", function() {
-          if (parseInt(slider.value) > 80) {
-            buttons[index].querySelector("img").src ="/InterfaceWeb/img/porte bizarre.png";
-          }
-          else if (parseInt(slider.value) > 50) {
-            buttons[index].querySelector("img").src ="/InterfaceWeb/img/Porte vide.png";
-          } else if (parseInt(slider.value) > 2){
-            buttons[index].querySelector("img").src ="/InterfaceWeb/img/porte a moitié ouverte.png";
-          } else {
-            buttons[index].querySelector("img").src ="/InterfaceWeb/img/porte.png";
-          }
-        });
-      });
-    });
-  </script>
 </head>
+
 <body>
   <header>
     <div class="header-icon">
@@ -35,74 +16,81 @@
     <div class="icons">
       <div class="icon">
         <button id="icon1"><img src="./img/eteinte.png" id="img1"></button>
-        <script>
-          const myImg = document.getElementById("img1");
-          const myButton = document.getElementById("icon1");
-
-          let isFirstImage = true;
-
-          myButton.addEventListener("click", function() {
-            if (isFirstImage) {
-              myImg.src ="/InterfaceWeb/img/eteinte.png";
-            } else {
-              myImg.src ="/InterfaceWeb/img/lumière allumé.png";
-            }
-            isFirstImage = !isFirstImage;
-          });
-        </script>
         <button id="icon2"><img src="./img/porte.png"></button>
       </div>
       <div class="icon">
         <button id="icon3"><img src="./img/radiateur.png" id="img3"> </button>
-        <script>
-          const myIm = document.getElementById("img3");
-          const myButto = document.getElementById("icon3");
-
-          let isFirstImag = true;
-
-          myButto.addEventListener("click", function() {
-            if (isFirstImag) {
-              myIm.src = "/InterfaceWeb/img/radiateur.png";
-            } else {
-              myIm.src = "/InterfaceWeb/img/radiateurchauffé.png";
-            }
-            isFirstImag = !isFirstImag;
-          });
-        </script>
         <button id="icon4"><img src="./img/fenêtre.png"></button>
       </div>
     </div>
     <div class="sliders">
       <div class="slider">
         <div class="s1">
-        <input type="range" min="0" max="100" value="50" class="slider-input" id="slider1">
+          <input type="range" min="0" max="100" value="50" class="slider-input" id="slider1">
         </div>
       </div>
       <div class="slider">
         <input type="range" min="0" max="100" value="50" class="slider-input" id="slider2">
       </div>
-      <img id="myImage" src="http://localhost:8080/InterfaceWeb/img/eteinte.png" alt="Image de la lampe">
+      <img id="myImage" src="img/eteinte.png" alt="Image de la lampe">
     </div>
   </div>
   <script>
-    async function lampe() {
-    const image = document.getElementById('img1');
-    let etatLampe = 0;
-    let newImageSource = image.src;
+    const myImg = document.getElementById("img1");
+    const myButton = document.getElementById("icon1");
+    let isFirstImage = true;
 
-    if (newImageSource.endsWith("./img/eteinte.png")) {
-        newImageSource = "/Users/komanboni/Flablab/projet-fablab-2024-aurelien-koman/InterfaceWeb/img/lumière allumé.png";
-        etatLampe = 1;
-    } else {
-        newImageSource = "/Users/komanboni/Flablab/projet-fablab-2024-aurelien-koman/InterfaceWeb/img/eteinte.png";
+    myButton.addEventListener("click", async function () {
+      let etatLampe = 0;
+      if (isFirstImage) {
+        myImg.src = "/InterfaceWeb/img/eteinte.png";
         etatLampe = 0;
-    }
+      } else {
+        myImg.src = "/InterfaceWeb/img/lumière allumé.png";
+        etatLampe = 1;
+      }
+      isFirstImage = !isFirstImage;
+      const reponse = await fetch("http://localhost:8080/lampe?on=" + etatLampe);
+      const data = await reponse.json()
+      console.log(data)
+      alert(data.result)
+    });
+    const myIm = document.getElementById("img3");
+    const myButto = document.getElementById("icon3");
 
-    image.src = newImageSource;
-    const reponse = await fetch("http://localhost:8080/lampe?on="+etatLampe);
-    const data = await reponse.json()
-    console.log(data)
-    alert(data.result)
+    let isFirstImag = true;
+
+    myButto.addEventListener("click", function () {
+      if (isFirstImag) {
+        myIm.src = "/InterfaceWeb/img/radiateur.png";
+      } else {
+        myIm.src = "/InterfaceWeb/img/radiateurchauffé.png";
+      }
+      isFirstImag = !isFirstImag;
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+      const sliders = document.querySelectorAll("#slider1");
+      const buttons = document.querySelectorAll("#icon2");
+
+      sliders.forEach((slider, index) => {
+        slider.addEventListener("input", function () {
+          if (parseInt(slider.value) > 80) {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/porte bizarre.png";
+          }
+          else if (parseInt(slider.value) > 50) {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/Porte vide.png";
+          } else if (parseInt(slider.value) > 2) {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/porte a moitié ouverte.png";
+          } else {
+            buttons[index].querySelector("img").src = "/InterfaceWeb/img/porte.png";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
 }
   </script>
 </body>
